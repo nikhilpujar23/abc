@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Knapsack Calculator</title>
+  
+  <script src="//code.jquery.com/jquery-1.12.0.min.js"></script>
+  <link rel="apple-touch-icon" sizes="180x180" href="/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon/favicon-16x16.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon/favicon-32x32.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+Bhai+2&family=DM+Sans&family=Dancing+Script&family=Hind:wght@300&family=Roboto+Mono&family=Satisfy&display=swap" rel="stylesheet">
+
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"
+        integrity="sha384-0mSbJDEHialfmuBBQP6A4Qrprq5OVfW37PRR3j5ELqxss1yVqOtnepnHVP9aJ7xS"
+        crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="css/style.css">
+        <link rel="stylesheet" href="path/to/font-awesome/css/font-awesome.min.css">
+</head>
+<body>
+  <div class="pimg1">
+    <div class="ptext">
+      <p class="border grad">DESIGN</p><br>
+      <p class="border gradq">AND ANALYSIS</p>
+      <p class="border gradqq">OF ALGORITHMS </p><br><br><br>
+    </div>
+  </div>
+  <div class="animation-area">
+    <ul class="box-area" style="list-style: none;">
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+      <li></li>
+    </ul>
+  </div>
+  <section class="section  rad">
+    <p class="border grady ">KNAPSACK</p>
+      <div class="container" style="padding-left: 100px;padding-right: 100px">
+        <div class="row g-4">
+          <hr>
+          <div class="card hvr1">
+            <div class="card-body">
+              <h5 class="card-title "></h5>
+              <p class="card-text">
+                The Knapsack Problem is a famous Dynamic Programming Problem that falls in the optimization category.
+                It derives its name from a scenario where, given a set of items with specific weights and assigned values, the goal is to maximize the value in a knapsack while remaining within the weight constraint.
+                Each item can only be selected once, as we dont have multiple quantities of any item.
+              </p>
+            </div>
+        </div>
+            <div class="card hvr1 card2">
+              <div class="card-body">
+                <h5 class="card-title grad5">PROBLEM STATEMENT</h5>
+                <p class="card-text">
+                We are given a set of items, each with a weight and a profit, and the maximum capacity of our knapsack. We have to add those items in such a way that we get maximum profit.
+                </p>
+              </div>
+          </div>
+          <div class="card hvr1 card2">
+            <div class="card-body">
+              <h5 class="card-title grad5">APPLICATION</h5>
+              <p class="card-text">
+                The knapsack problems have a variety of real life applications including financial modeling, production and inventory management systems, stratified sampling, design of queuing network models in manufacturing, and control of traffic overload in telecommunication systems.
+              </p>
+            </div>
+        </div>
+        </div>
+        <hr>
+      </div>
+    </section>
+    
+    <div class="pimg2">
+      <div class="ptext">
+        <span class=" bgcb"><span class="border grad3"></span>KNAPSACK PROBLEM<span class="border grad3"></span>
+      </div>
+    </div>
+    <section class="section  rad">
+      <p class="border grady">KNAPSACK MAX PROFIT CALCULATOR</p>
+      <hr>
+      <div class="card ">
+        <div class="card-body">
+          <h5 class="card-title "></h5>
+          <p class="card-text">
+            <div class="container hide1 ">
+              <div class="row justify-content-md-center mrg1">
+                <div class="col-md-6">
+                    <div class="input-group">
+                        <div class="input-group-addon ">
+                            <span class="glyphicon glyphicon-shopping-cart "></span>
+                        </div>
+                        <input class="form-control" id="capacity" type="number" placeholder="Enter Knapsack Capacity">
+                    </div>
+                </div>
+                <div class="col-md-6 center-block mrg2">
+                    <div class="input-group">
+                        <div class="input-group-addon" >
+                            <span class="glyphicon glyphicon-align-left " aria-hidden="true"></span>
+                        </div>
+                        <input class="form-control" id="rows" type="number" placeholder="Enter number of Items" />
+                    </div>
+                </div>
+            </div>
+                <div class="text-center">
+                    <button type="button" class="generateTable btn genr pos btn-success " onclick="createTable();">Generate Table</button>
+                </div>
+                <div class="table" id="wrapper"></div>
+                <div class="text-center">
+                    <button type="button" class="generateResult btn btn-primary pos " id="butt" onclick="generateResult();">Calculate</button>
+                </div>
+            </div>
+          </p>
+        </div>
+    </div>
+
+    <hr>
+    <div class="container text-center ">
+        <div class="result ">
+            <div class="resultContainer" id="resultContainer1">
+                <h2 id="kcap" class="grad8" style="font-size: 40px;">KNAPSACK SOLUTION (GREEDY)</h2>
+                <hr>
+                <div class="resultContainer2">
+                  <h4>Profit</h4>
+                <h2 id="kpProfit" class="gradx"></h2>
+                <h4>Weight</h4>
+                <h2 id="kpWeight" class="gradx"></h2>
+                <h4>Profit / Weight</h4>
+                <h2 id="kpProfitWeight" class="gradx"></h2>
+                <h4>Max Profit</h4>
+                <h2 id="kpResultantProfit" class="gradx"></h2>
+              </div>
+              <hr>
+            </div>
+            <div class="resultContainer" >
+              <h2 id="kcap" class="grad8" style="font-size: 40px;">KNAPSACK SOLUTION (DP)</h2>
+              <h4>Resultant Table</h4>
+              <div id="knapsackTable" class="gradx"></div>
+              <h4>Max Profit</h4>
+              <h2 id="kp01ResultantProfit" class="gradx"></h2>
+          </div>
+        </div>
+    </div>
+    </section>
+    <div class="pimg3">
+      <div class="ptext">
+        <span class=" bgcb"><span class="border grad3"></span>KNAPSACK DOCUMENTATION<span class="border grad3"></span></span>
+      </div>
+    </div>
+    <section class="section  rad">
+      <div class="container" style="padding-left: 100px;padding-right: 100px">
+        <p class="border grady">THERE ARE THREE METHODS TO SOLVE THIS PROBLEM</p><hr>
+        <div class="flx">
+        <p class="border grady" style="font-size: 25px;">RECURSION BY BRUTE-FORCE</p>
+        <p class="border grady" style="font-size: 25px;">BY DYNAMIC PROGRAMMING</p>
+      </div>
+        <div class="row row-cols-1 row-cols-md-2 g-4 ">
+          <div class="col p-3">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title grad5"></h5>
+                <p class="card-text">
+                  <div class="card hvr xxx">
+                    <div class="card-body">
+                      <h5 class="card-title grad5">APPROACH</h5>
+                      <p class="card-text ">
+                        A simple solution is to consider all subsets of items and calculate the total weight and value of all subsets. Consider the only subsets whose total weight is smaller than W. From all such subsets, pick the maximum value subset. <br>
+                      </p>
+                    </div>
+                    </div>
+                  <div class="card hvr bgc">
+                    <div class="card-body">
+                      <h5 class="card-title grad5">OPTIMAL SUB-STRUCTURE</h5>
+                      <p class="card-text ">
+                        To consider all subsets of items, there can be two cases for every item. 
+                        Case 1: The item is included in the optimal subset.
+                        Case 2: The item is not included in the optimal set.
+                        Therefore, the maximum value that can be obtained from n items is the max of the following two values.In this way the substructure is preapared. <br>
+                      </p>
+                    </div>
+                    </div>
+                  <div class="card hvr  xxx">
+                    <div class="card-body ">
+                      <h5 class="card-title grad5">COMPLEXITY</h5>
+                      <p class="card-text">
+                        Time Complexity: O(2n)<br>
+                        Space Complexity:  O(1)
+                      </p>
+                    </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col p-3">
+            <div class="card">
+              <div class="card-body">
+                <h5 class="card-title grad5"></h5>
+                <p class="card-text">
+                  <div class="card hvr xxx">
+                    <div class="card-body">
+                      <h5 class="card-title grad5">APPROACH</h5>
+                      <p class="card-text ">
+                        In the Dynamic programming we will work considering the same cases as mentioned in the recursive approach. In a DP[][] table lets consider all the possible weights from 1 to W as the columns and weights that can be kept as the rows. <br>
+                      </p>
+                    </div>
+                    </div>
+                  <div class="card hvr bgc">
+                    <div class="card-body">
+                      <h5 class="card-title grad5">OPTIMAL SUB-STRUCTURE</h5>
+                      <p class="card-text ">
+                        Case 1: Fill wi in the given column.
+                        Case 2: Do not fill.
+                        If we do not fill ith weight in jth column then DP[i][j] state will be same as DP[i-1][j] but if we fill the weight, DP[i][j] will be equal to the value of wi + value of the column weighing j-wi in the previous row. So we take the maximum of these two possibilities to fill the current state.<br>
+                      </p>
+                    </div>
+                    </div>
+                  <div class="card hvr xxx">
+                    <div class="card-body">
+                      <h5 class="card-title grad5">COMPLEXITY</h5>
+                      <p class="card-text ">
+                        Time Complexity: O(N*W) <br>
+                        Space Complexity: O(N*W)
+                        <br>
+                      </p>
+                    </div>
+                    </div>
+              </div>
+            </div>
+          </div>
+          </div>
+          <br>
+          <p class="border grady" style="font-size: 25px;margin-top: 10px;">BY MEMOIZATION TECHNIQUE</p>
+          <div class="row row-cols-1 row-cols-md-2 g-4 ">
+            <div class="col p-3">
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title grad5"></h5>
+                  <p class="card-text">
+                    <div class="card hvr xxx">
+                      <div class="card-body">
+                        <h5 class="card-title grad5">APPROACH</h5>
+                        <p class="card-text ">
+                          This method is basically an extension to the recursive approach so that we can overcome the problem of calculating redundant cases and thus increased complexity. We can solve this problem by simply creating a 2-D array that can store a particular state (n, w) if we get it the first time.  <br>
+                        </p>
+                      </div>
+                      </div>
+                    <div class="card hvr bgc">
+                      <div class="card-body">
+                        <h5 class="card-title grad5">OPTIMAL SUB-STRUCTURE</h5>
+                        <p class="card-text ">
+                          Substructure is created in the same way as we did in the recursive approach.
+                          We can solve this problem by simply creating a 2-D array that can store a particular state (n, w) if we get it the first time. Now if we come across the same state (n, w) again instead of calculating it in exponential complexity we can directly return its result stored in the table in constant time. This method gives an edge over the recursive approach in this aspect. <br>
+                        </p>
+                      </div>
+                      </div>
+
+                    <div class="card hvr xxx">
+                      <div class="card-body ">
+                        <h5 class="card-title grad5">COMPLEXITY</h5>
+                        <p class="card-text">
+                          Time Complexity: O(N*W)<br>
+                          Space Complexity:  O(N*W)
+                        </p>
+                      </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </div>
+        
+      </div><hr>
+    </section>
+    <div class="pimg4">
+      <div class="ptext">
+        <p class="border ">GROUP MEMBERS</p>
+        <div class="flx1">
+          <span class=" bgcb"><span class="border grad3"></span><a href="">ABHAY A. JAIN</a></span>
+          <span class=" bgcb"><span class="border grad3"></span>&nbsp; <a href="https://github.com/AdityaNagre?tab=repositories" target="_blank" >ADITYA M. NAGRE</a> &nbsp;</span></span>
+          <span class=" bgcb"><span class="border grad3"></span><a href="">AKSHAY KUMAR</a><span class="border grad3"></span></span>
+        </div><br><br>
+        <div class="flx1">
+          <span class=" bgcb"><span class="border grad3"></span>20103001</span></span>
+          <span class=" bgcb"><span class="border grad3"></span>20103007</span></span>
+          <span class=" bgcb"><span class="border grad3"></span>20103010<span class="border grad3"></span></span> </div><br><br>
+        <div class="flx1">
+          <span class=" bgcb"><span class="border grad3"></span>CSE II YEAR<span class="border grad3"></span></span>
+          </div><br>
+        <div class="flx1">
+          <span class=" bgcb"><span class="border grad3"></span>SEC-A<span class="border grad3"></span></span>
+            </div>
+
+    </div>
+
+
+    <script src="knp.js"></script>
+</body>
+</html>
+
+
+
